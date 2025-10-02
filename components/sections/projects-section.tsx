@@ -86,14 +86,14 @@ const projects = [
   //   color: "from-secondary to-primary",
   // },
   {
-    title: "task's",
+    title: "tasks",
     description:
       "Application de gestion de tâches moderne et intuitive avec interface réactive et fonctionnalités avancées de productivité.",
-    image: "/todo-app-task-management.jpg",
-    technologies: ["React"],
+    image: "/female-presenting-todo-list-illustration-svg-download-png-8015924.webp",
+    technologies: ["React", "next.js", "TypeScript", "Tailwind CSS"],
     features: ["Ajout/suppression de tâches", "Filtres et catégories", "Persistance des données", "Interface moderne"],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/Meriem003/to-do",
+    demo: "https://to-do-self-rho.vercel.app/dashboard",
     color: "from-accent to-secondary",
   },
 ]
