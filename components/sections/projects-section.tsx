@@ -105,7 +105,22 @@ export default function ProjectsSection() {
 
   return (
     <section id="projects" ref={ref} className="py-20 md:py-32 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-accent/5 to-primary/5 gradient-animated" />
+      {/* Gradient backgrounds */}
+      <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-accent/5 to-primary/5" />
+      <motion.div
+        className="absolute inset-0"
+        style={{
+          background: "radial-gradient(circle at 25% 50%, rgba(253, 186, 116, 0.12) 0%, transparent 50%), radial-gradient(circle at 75% 50%, rgba(139, 127, 214, 0.12) 0%, transparent 50%)"
+        }}
+        animate={{
+          opacity: [0.3, 0.6, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -114,13 +129,40 @@ export default function ProjectsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          <motion.div
+            initial={{ scale: 0, rotate: 180 }}
+            animate={isInView ? { scale: 1, rotate: 0 } : {}}
+            transition={{ type: "spring", stiffness: 200, damping: 15 }}
+            className="inline-flex items-center justify-center mb-6"
+          >
+            <div className="relative">
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary via-accent to-secondary blur-md opacity-50"
+              />
+              <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-xl">
+                <Sparkles className="w-8 h-8 text-white" />
+              </div>
+            </div>
+          </motion.div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Mes <span className="text-primary">Projets</span>
+            Mes <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Projets</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary via-secondary to-accent mx-auto rounded-full" />
-          <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <motion.div
+            initial={{ width: 0 }}
+            animate={isInView ? { width: 80 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="h-1 bg-gradient-to-r from-primary via-accent to-secondary mx-auto rounded-full shadow-lg"
+          />
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.4 }}
+            className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+          >
             Découvrez mes réalisations qui allient innovation technique et créativité
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">

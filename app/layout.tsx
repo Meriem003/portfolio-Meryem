@@ -17,14 +17,14 @@ const firaCode = Fira_Code({
 })
 
 export const metadata: Metadata = {
-  title: "Meryem Salhi | Creative Full Stack Developer",
+  title: "Meryem Salhi | Full Stack Developer",
   description:
-    "Portfolio de Meryem Salhi - Développeuse Full Stack passionnée par la création d'expériences web innovantes. Spécialisée en Laravel, React, Angular.",
-  keywords: ["Full Stack Developer", "Laravel", "React", "Angular", "Web Development", "Meryem Salhi"],
+    "Portfolio de Meryem Salhi - Développeuse Full Stack passionnée par la création d'expériences web innovantes",
+  keywords: ["Full Stack Developer", "Java", "Spring Boot", "Laravel", "React", "Angular", "Web Development", "Meryem Salhi"],
   authors: [{ name: "Meryem Salhi" }],
   openGraph: {
-    title: "Meryem Salhi | Creative Full Stack Developer",
-    description: "Portfolio de Meryem Salhi - Développeuse Full Stack créative",
+    title: "Meryem Salhi | Full Stack Developer",
+    description: "Portfolio de Meryem Salhi - Développeuse Full Stack",
     type: "website",
   },
     generator: 'v0.app'
