@@ -6,6 +6,11 @@ import { motion, AnimatePresence } from "framer-motion"
 export default function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true)
   const [progress, setProgress] = useState(0)
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -21,6 +26,10 @@ export default function LoadingScreen() {
 
     return () => clearInterval(timer)
   }, [])
+
+  if (!isMounted) {
+    return null
+  }
 
   return (
     <AnimatePresence>

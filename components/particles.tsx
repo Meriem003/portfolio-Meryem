@@ -1,9 +1,14 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export default function Particles() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -67,6 +72,10 @@ export default function Particles() {
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
+
+  if (!isMounted) {
+    return null
+  }
 
   return <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
 }

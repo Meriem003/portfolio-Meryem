@@ -6,6 +6,11 @@ import { motion } from "framer-motion"
 export default function CustomCursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   useEffect(() => {
     const updateMousePosition = (e: MouseEvent) => {
@@ -29,6 +34,10 @@ export default function CustomCursor() {
       window.removeEventListener("mouseover", handleMouseOver)
     }
   }, [])
+
+  if (!isMounted) {
+    return null
+  }
 
   return (
     <>

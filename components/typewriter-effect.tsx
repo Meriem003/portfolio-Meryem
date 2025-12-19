@@ -18,6 +18,11 @@ export default function TypewriterEffect({
   const [displayText, setDisplayText] = useState("")
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   useEffect(() => {
     const currentText = texts[currentIndex]
@@ -44,6 +49,10 @@ export default function TypewriterEffect({
 
     return () => clearTimeout(timeout)
   }, [displayText, currentIndex, isDeleting, texts, typingSpeed, deletingSpeed, pauseDuration])
+
+  if (!isMounted) {
+    return <span className="text-primary"> </span>
+  }
 
   return (
     <span className="text-primary">

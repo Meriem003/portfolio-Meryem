@@ -18,14 +18,14 @@ const education = [
     color: "from-primary to-secondary",
   },
   {
-    institution: "Université Mohamed Premier",
-    degree: "Licence Sciences Économiques",
-    period: "2022 - 2024",
-    description:
-      "Formation en sciences économiques avec développement de compétences analytiques et de résolution de problèmes.",
-    icon: GraduationCap,
-    color: "from-secondary to-accent",
-  },
+  institution: "Université Mohamed Premier",
+  degree: "Licence Sciences Économiques (2ᵉ année)",
+  period: "2023 - Présent",
+  description:
+    "Étudiante en deuxième année de licence en sciences économiques, avec développement de compétences analytiques et de résolution de problèmes.",
+  icon: GraduationCap,
+  color: "from-secondary to-accent",
+},
   {
     institution: "Lycée Khawarizmi",
     degree: "Baccalauréat SVT",

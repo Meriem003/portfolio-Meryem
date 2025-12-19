@@ -19,7 +19,12 @@ const navItems = [
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
   const { theme, setTheme } = useTheme()
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,15 +79,16 @@ export default function Navigation() {
                 />
               </motion.a>
             ))}
-            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="rounded-full relative group"
-              >
-                <AnimatePresence mode="wait">
-                  {theme === "dark" ? (
+            {isMounted && (
+              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="rounded-full relative group"
+                >
+                  <AnimatePresence mode="wait">
+                    {theme === "dark" ? (
                     <motion.div
                       key="sun"
                       initial={{ rotate: -90, opacity: 0 }}
@@ -110,19 +116,21 @@ export default function Navigation() {
                 />
               </Button>
             </motion.div>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
-            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="rounded-full"
-              >
-                <AnimatePresence mode="wait">
-                  {theme === "dark" ? (
+            {isMounted && (
+              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="rounded-full"
+                >
+                  <AnimatePresence mode="wait">
+                    {theme === "dark" ? (
                     <motion.div
                       key="sun"
                       initial={{ rotate: -90, opacity: 0 }}
@@ -144,6 +152,7 @@ export default function Navigation() {
                 </AnimatePresence>
               </Button>
             </motion.div>
+            )}
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)} className="rounded-full">
                 <AnimatePresence mode="wait">
