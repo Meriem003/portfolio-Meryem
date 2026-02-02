@@ -13,7 +13,7 @@ const projects = [
     title: "SupplyChainX",
     description:
       "Application complète de gestion de chaîne d'approvisionnement avec authentification JWT sécurisée, observabilité ELK Stack et CI/CD automatisé.",
-    image: "/supply-chain-management.jpg",
+    image: "/SupplyChainX.jpg",
     technologies: ["Java 17", "Spring Boot 3.5", "Angular 21", "MySQL", "Docker", "ELK Stack"],
     features: [
       "Authentification JWT (Access + Refresh Token)",
@@ -21,7 +21,7 @@ const projects = [
       "Observabilité avec ELK Stack",
       "CI/CD GitHub Actions",
     ],
-    github: "#",
+    github: "https://github.com/Meriem003/SupplyChainX-frontend-",
     demo: "#",
     color: "from-primary to-secondary",
   },
@@ -29,7 +29,7 @@ const projects = [
     title: "Fleet & Maintenance Module",
     description:
       "Module de gestion de flotte et maintenance avec API Laravel Sanctum et interface React moderne avec animations Framer Motion.",
-    image: "/fleet-maintenance.jpg",
+    image: "/Fleet & Maintenance Module.jpg",
     technologies: ["Laravel 12", "React 19", "Framer Motion", "Tailwind CSS", "MySQL"],
     features: [
       "Gestion de flotte véhicules",
@@ -37,7 +37,7 @@ const projects = [
       "Animations fluides",
       "Notifications temps réel",
     ],
-    github: "#",
+    github: "https://github.com/Meriem003/Fleet_Maintenance_module",
     demo: "#",
     color: "from-secondary to-accent",
   },
@@ -53,7 +53,7 @@ const projects = [
       "Tests PHPUnit",
       "API RESTful sécurisée",
     ],
-    github: "#",
+    github: "https://github.com/Meriem003/skill_share",
     demo: "#",
     color: "from-accent to-primary",
   },
@@ -61,7 +61,7 @@ const projects = [
     title: "SmartShop",
     description:
       "Application e-commerce backend robuste avec Spring Boot, mapping automatique MapStruct et documentation Swagger/OpenAPI.",
-    image: "/smart-shop.jpg",
+    image: "/SmartShop.jpg",
     technologies: ["Java 17", "Spring Boot 3.2", "MapStruct", "JUnit 5", "MySQL", "Swagger"],
     features: [
       "Architecture RESTful",
@@ -69,7 +69,7 @@ const projects = [
       "Tests unitaires complets",
       "Documentation OpenAPI",
     ],
-    github: "#",
+    github: "https://github.com/Meriem003/smart_shop/tree/develop",
     demo: "#",
     color: "from-primary via-secondary to-accent",
   },
@@ -77,7 +77,7 @@ const projects = [
     title: "Hôpital Numérique",
     description:
       "Système de gestion hospitalière numérique avec Spring Boot, validation des données et tests Mockito.",
-    image: "/hospital-digital.jpg",
+    image: "/Hôpital Numérique.jpg",
     technologies: ["Java 17", "Spring Boot 3.2", "Spring Data JPA", "Lombok", "MySQL"],
     features: [
       "Gestion des patients",
@@ -85,7 +85,7 @@ const projects = [
       "Validation des données",
       "Tests Mockito",
     ],
-    github: "#",
+    github: "https://github.com/Meriem003/Hopital_numerique",
     demo: "#",
     color: "from-secondary to-primary",
   },
@@ -93,7 +93,7 @@ const projects = [
     title: "CineHub",
     description:
       "Application de gestion de cinéma avec Spring Framework MVC, Hibernate ORM et déploiement sur Apache Tomcat.",
-    image: "/cinehub.jpg",
+    image: "/CineHub.webp",
     technologies: ["Java", "Spring 5.3", "Hibernate", "Maven", "MySQL", "Tomcat"],
     features: [
       "Catalogue de films",
@@ -101,7 +101,7 @@ const projects = [
       "Gestion des salles",
       "Architecture MVC",
     ],
-    github: "#",
+    github: "https://github.com/Meriem003/CineHub",
     demo: "#",
     color: "from-accent to-secondary",
   },
@@ -133,7 +133,7 @@ const projects = [
       "App Router optimisé",
       "Design responsive",
     ],
-    github: "#",
+    github: "https://github.com/Meriem003/makeup",
     demo: "#",
     color: "from-secondary via-accent to-primary",
   },
