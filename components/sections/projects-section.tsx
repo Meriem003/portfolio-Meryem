@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef, useState } from "react"
-import { ExternalLink, Github, Sparkles } from "lucide-react"
+import { ExternalLink, Github, Sparkles, ChevronLeft, ChevronRight } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -13,8 +13,8 @@ const projects = [
     title: "SupplyChainX",
     description:
       "Application complète de gestion de chaîne d'approvisionnement avec authentification JWT sécurisée, observabilité ELK Stack et CI/CD automatisé.",
-    image: "/SupplyChainX.jpg",
-    technologies: ["Java 17", "Spring Boot 3.5", "Angular 21", "MySQL", "Docker", "ELK Stack"],
+    image: "/SupplyChainX.webp",
+    technologies: ["Java 17", "Spring Boot 3.5", "Angular 21", "MySQL", "Docker", "ELK Stack","JUnit 5", "Mockito","GitHub Actions","TypeScript"],
     features: [
       "Authentification JWT (Access + Refresh Token)",
       "24 tests d'intégration sécurité",
@@ -29,8 +29,8 @@ const projects = [
     title: "Fleet & Maintenance Module",
     description:
       "Module de gestion de flotte et maintenance avec API Laravel Sanctum et interface React moderne avec animations Framer Motion.",
-    image: "/Fleet & Maintenance Module.jpg",
-    technologies: ["Laravel 12", "React 19", "Framer Motion", "Tailwind CSS", "MySQL"],
+    image: "/Fleet & Maintenance Module.webp",
+    technologies: ["PHP 8.1","Laravel 12", "React 19", "Laravel Sanctum", "Tailwind CSS", "MySQL"],
     features: [
       "Gestion de flotte véhicules",
       "Suivi de maintenance",
@@ -46,7 +46,7 @@ const projects = [
     description:
       "Plateforme collaborative d'apprentissage entre étudiants avec système d'authentification Laravel Sanctum et visualisation de données Chart.js.",
     image: "/collaborative-learning-platform-interface.jpg",
-    technologies: ["Laravel 10", "Vite", "Chart.js", "Axios", "MySQL"],
+    technologies: ["Laravel 10", "PHP 8.1", "Chart.js", "MySQL", "PHPUnit", "HTML", "CSS", "JavaScript"],
     features: [
       "Système de matching skills",
       "Dashboard analytics graphiques",
@@ -61,8 +61,8 @@ const projects = [
     title: "SmartShop",
     description:
       "Application e-commerce backend robuste avec Spring Boot, mapping automatique MapStruct et documentation Swagger/OpenAPI.",
-    image: "/SmartShop.jpg",
-    technologies: ["Java 17", "Spring Boot 3.2", "MapStruct", "JUnit 5", "MySQL", "Swagger"],
+    image: "/SmartShop.webp",
+    technologies: ["Java 17", "Spring Boot 3.2", "Spring Data JPA","Maven","MapStruct", "JUnit 5", "MySQL", "Swagger"],
     features: [
       "Architecture RESTful",
       "Mapping DTO ↔ Entity automatique",
@@ -77,8 +77,8 @@ const projects = [
     title: "Hôpital Numérique",
     description:
       "Système de gestion hospitalière numérique avec Spring Boot, validation des données et tests Mockito.",
-    image: "/Hôpital Numérique.jpg",
-    technologies: ["Java 17", "Spring Boot 3.2", "Spring Data JPA", "Lombok", "MySQL"],
+    image: "/Hôpital Numérique.webp",
+    technologies: ["Java 21", "Jakarta EE", "JPA", "Maven","Hibernate", "MySQL","HTML", "CSS", "JavaScript"],
     features: [
       "Gestion des patients",
       "Planification des rendez-vous",
@@ -125,7 +125,7 @@ const projects = [
     title: "Luxe Beauty",
     description:
       "Boutique de maquillage premium avec Next.js 14, React 18 et design moderne responsive.",
-    image: "/luxe-beauty.jpg",
+    image: "/Luxe-Beauty.webp",
     technologies: ["Next.js 14", "React 18", "TypeScript", "Tailwind CSS"],
     features: [
       "Catalogue produits premium",
@@ -139,10 +139,25 @@ const projects = [
   },
 ]
 
+const PROJECTS_PER_PAGE = 6
+
 export default function ProjectsSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [currentPage, setCurrentPage] = useState(0)
+
+  const totalPages = Math.ceil(projects.length / PROJECTS_PER_PAGE)
+  const startIndex = currentPage * PROJECTS_PER_PAGE
+  const currentProjects = projects.slice(startIndex, startIndex + PROJECTS_PER_PAGE)
+
+  const nextPage = () => {
+    setCurrentPage((prev) => (prev + 1) % totalPages)
+  }
+
+  const prevPage = () => {
+    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages)
+  }
 
   return (
     <section id="projects" ref={ref} className="py-20 md:py-32 relative overflow-hidden">
@@ -207,7 +222,7 @@ export default function ProjectsSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {projects.map((project, index) => (
+          {currentProjects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 50 }}
@@ -312,6 +327,52 @@ export default function ProjectsSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.6 }}
+            className="flex items-center justify-center gap-4 mt-12"
+          >
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={prevPage}
+              className="rounded-full border-2 border-primary/30 hover:border-primary hover:bg-primary/10 transition-all"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </Button>
+
+            <div className="flex items-center gap-2">
+              {Array.from({ length: totalPages }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentPage(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    currentPage === index
+                      ? "bg-gradient-to-r from-primary to-accent scale-125"
+                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={nextPage}
+              className="rounded-full border-2 border-primary/30 hover:border-primary hover:bg-primary/10 transition-all"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </Button>
+
+            <span className="text-sm text-muted-foreground ml-4">
+              {currentPage + 1} / {totalPages}
+            </span>
+          </motion.div>
+        )}
       </div>
     </section>
   )
