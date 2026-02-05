@@ -62,7 +62,7 @@ const projects = [
     description:
       "Application e-commerce backend robuste avec Spring Boot, mapping automatique MapStruct et documentation Swagger/OpenAPI.",
     image: "/SmartShop.webp",
-    technologies: ["Java 17", "Spring Boot 3.2", "Spring Data JPA","Maven","MapStruct", "JUnit 5", "MySQL", "Swagger"],
+    technologies: ["Java 17", "Spring Boot 3.2", "Spring Data JPA","Maven","MapStruct", "JUnit 5", "MySQL", "Swagger", "react"],
     features: [
       "Architecture RESTful",
       "Mapping DTO ↔ Entity automatique",
